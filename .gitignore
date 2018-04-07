@@ -1,1 +1,7 @@
- sqlite-fall2017.tar.gz-XXX
+sqlite-fall2017.tar.gz-XXX
+.vscode
+.DS_Store 
+build 
+md_courts
+md_courts.dump.gz
+sql.tar.gz
