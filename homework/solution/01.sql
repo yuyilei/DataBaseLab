@@ -1,3 +1,2 @@
-select count(distinct lower(name)) i
-from attorneys 
-where lower(name) != 'null' ;
+select count(distinct name) 
+from attorneys ;
