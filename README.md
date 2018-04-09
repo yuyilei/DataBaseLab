@@ -1,6 +1,6 @@
 # DataBaseLab
 
-超难的，嘤嘤嘤 ಥ⌣ಥ 
+超难的，嘤嘤嘤 (∪´>‿<`) 
 
 ## Homeworks 
 
