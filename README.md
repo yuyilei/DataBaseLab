@@ -9,4 +9,5 @@
 
 ## Projects
 
-- [ ] Project1  --  Buffer Pool  有点写不动了，c++根本不会啊喂！！
+Project1 :Buffer Pool  
+- [x] Extendible Hashing
