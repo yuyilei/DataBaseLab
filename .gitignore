@@ -5,3 +5,6 @@ build
 md_courts
 md_courts.dump.gz
 sql.tar.gz
+*.swo
+*.swp 
+
