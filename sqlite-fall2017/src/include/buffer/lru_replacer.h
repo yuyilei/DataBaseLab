@@ -9,6 +9,13 @@
 
 #pragma once
 
+#include <cstdlib>
+#include <vector>
+#include <string>
+#include <mutex>
+#include <memory>
+#include <thread>
+#include <chrono>
 #include "buffer/replacer.h"
 #include "hash/extendible_hash.h"
 
@@ -31,6 +38,9 @@ public:
 
 private:
   // add your member variables here
+  mutable std::mutex node_mutex ;                        // 保护共享数据，同时只有一个读写
+  size_t node_size ;                                       // 节点个数
+  std::vector<T> ns ;
 };
 
 } // namespace cmudb
