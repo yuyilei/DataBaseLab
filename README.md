@@ -11,3 +11,4 @@
 
 Project1 :Buffer Pool  
 - [x] Extendible Hashing
+- [x] lru_replacer 
