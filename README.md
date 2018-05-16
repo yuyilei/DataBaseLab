@@ -9,6 +9,7 @@
 
 ## Projects
 
-Project1 :Buffer Pool  
+### Project1 : Buffer Pool  
 - [x] Extendible Hashing
 - [x] lru_replacer 
+- [x] buffer pool manager
