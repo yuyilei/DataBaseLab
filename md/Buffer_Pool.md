@@ -36,3 +36,30 @@ global depth增加的条件 : 插入新元素之后，桶中元素溢出了，�
 
 ## Buffer Pool Manager 
 
+利用了上面实现的Extendible Hashing 和 LRU
+
+数据结构如下:
+
+```c
+  size_t pool_size_; // number of pages in buffer pool
+  Page *pages_;      // array of pages
+  DiskManager *disk_manager_;
+  HashTable<page_id_t, Page *> *page_table_; // 利用page_id 查找每一个page 
+  Replacer<Page *> *replacer_;   // to find an unpinned page for replacement
+  std::list<Page *> *free_list_; // to find a free page for replacement
+  std::mutex latch_;             // to protect shared data structure
+```
+
+实现的机制：
+
+根据page_id 查找需要的块，Buffer Manager要做的就是，现在 Buffer中查找 有没有 id 为 page_id 的块，如果有，就直接返回。
+
+如果没有，就要从磁盘中加载id为page_id的块到内存中，加载到何处呢？
+
+首先，先如果free_table_里面还有空闲的块，就使用空闲的块。
+
+如果，free_table_中没有空闲的块，Buffer Manager就需要启用替换机制（LRU），把缓冲区中，最近最少使用的块移除，然后，把新的块，加载到这个块中。 需要注意的是，移除之前，如果这个块是dirty的，需要先写回到到磁盘，再把新的块加载到当前块中。 
+
+
+
+
